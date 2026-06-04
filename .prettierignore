@@ -1,0 +1,10 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+dist
+test-results
+playwright-report
+test/golden/snapshots
+
+tsconfig.json
