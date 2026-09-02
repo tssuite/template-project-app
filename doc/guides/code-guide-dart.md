@@ -55,14 +55,14 @@ package. Read that one first; this only fills in the specifics.
 
 ## Name things consistently
 
-| Construct | Style | Example |
-| --- | --- | --- |
-| Class | PascalCase with the package prefix | `GgRouterDelegate` |
-| File | snake_case with the package prefix | `gg_router_delegate.dart` |
-| Test file | `<filename>_test.dart` | `gg_router_delegate_test.dart` |
-| Private member | `_camelCase` | `_updateState` |
-| Constant | `lowerCamelCase` | `carriageReturn` |
-| Enum value | `lowerCamelCase` | `GgStatus.success` |
+| Construct      | Style                              | Example                        |
+| -------------- | ---------------------------------- | ------------------------------ |
+| Class          | PascalCase with the package prefix | `GgRouterDelegate`             |
+| File           | snake_case with the package prefix | `gg_router_delegate.dart`      |
+| Test file      | `<filename>_test.dart`             | `gg_router_delegate_test.dart` |
+| Private member | `_camelCase`                       | `_updateState`                 |
+| Constant       | `lowerCamelCase`                   | `carriageReturn`               |
+| Enum value     | `lowerCamelCase`                   | `GgStatus.success`             |
 
 ## Avoid these
 

@@ -105,10 +105,7 @@ const replaceInFiles = (directory) => {
         .replace(new RegExp(classAUpper, 'g'), classBUpper)
         .replace(new RegExp(classALower, 'g'), classBLower)
         .replace(new RegExp(classASnake, 'g'), classBSnake)
-        .replace(
-          new RegExp(classASnakeUnderscore, 'g'),
-          classBSnakeUnderscore,
-        );
+        .replace(new RegExp(classASnakeUnderscore, 'g'), classBSnakeUnderscore);
       writeTextFile(fullPath, original, content);
     }
   }

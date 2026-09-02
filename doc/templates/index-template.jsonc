@@ -21,6 +21,6 @@
     "uses": {},
 
     // "<repo-b>": "why / API"
-    "usedBy": {}
-  }
+    "usedBy": {},
+  },
 }
