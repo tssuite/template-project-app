@@ -58,14 +58,14 @@ Read that one first; this only fills in the specifics.
 
 ## Name things consistently
 
-| Construct | Style | Example |
-| --- | --- | --- |
-| Class, interface, type | PascalCase | `BlobStorage` |
-| File | kebab-case | `blob-storage.ts` |
-| Test file | `<filename>.spec.ts` | `blob-storage.spec.ts` |
-| Function, variable | lowerCamelCase | `readItem` |
-| Constant | lowerCamelCase | `carriageReturn` |
-| Enum value | lowerCamelCase | `Status.success` |
+| Construct              | Style                | Example                |
+| ---------------------- | -------------------- | ---------------------- |
+| Class, interface, type | PascalCase           | `BlobStorage`          |
+| File                   | kebab-case           | `blob-storage.ts`      |
+| Test file              | `<filename>.spec.ts` | `blob-storage.spec.ts` |
+| Function, variable     | lowerCamelCase       | `readItem`             |
+| Constant               | lowerCamelCase       | `carriageReturn`       |
+| Enum value             | lowerCamelCase       | `Status.success`       |
 
 ## Avoid these
 

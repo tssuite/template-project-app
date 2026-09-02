@@ -12,9 +12,9 @@ import { templateProjectAppVersion } from '../src/template_project_app_version';
 
 describe('template_project_app_version.ts', () => {
   it('matches the version in package.json', () => {
-    const manifest = JSON.parse(
-      readFileSync('package.json', 'utf8'),
-    ) as { version?: string };
+    const manifest = JSON.parse(readFileSync('package.json', 'utf8')) as {
+      version?: string;
+    };
     expect(manifest.version).toBeTruthy();
 
     const declaration = 'export const templateProjectAppVersion = ';
