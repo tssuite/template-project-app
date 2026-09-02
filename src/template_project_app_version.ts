@@ -2,4 +2,4 @@
 // Kept in sync by test/template_project_app_version.test.ts.
 
 /** The version of the `@tssuite/template-project-app` package. */
-export const templateProjectAppVersion = '0.0.2';
+export const templateProjectAppVersion = '0.0.3';

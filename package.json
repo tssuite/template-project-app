@@ -1,6 +1,6 @@
 {
   "name": "@tssuite/template-project-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "tssuite template for browser apps incl. Playwright e2e tests and screenshot snapshots",
   "homepage": "https://github.com/tssuite/template-project-app",
   "bugs": "https://github.com/tssuite/template-project-app/issues",
