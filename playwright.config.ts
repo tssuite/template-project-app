@@ -24,6 +24,15 @@ export default defineConfig({
     '{testDir}/../golden/snapshots/{testFileName}/{arg}-{projectName}{ext}',
 
   updateSnapshots: 'missing',
+
+  // Font rendering differs between machines: the same diagram comes out a
+  // pixel or two off on another Linux box, and Windows differs again. A
+  // small tolerance keeps the goldens portable while a real change to the
+  // rendered output — different labels, boxes, colours — still trips the
+  // comparison.
+  expect: {
+    toHaveScreenshot: { maxDiffPixelRatio: 0.02 },
+  },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,

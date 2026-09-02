@@ -1,44 +1,28 @@
+# The full suite on every push to main: unit tests with coverage, the
+# Playwright end-to-end tests including the golden screenshots, and a
+# production build.
+#
+# Ubuntu only. The Windows leg this file used to carry came from the bridge
+# repos, where it covered the Dart host abstraction — this app has no Dart
+# at all, and the golden screenshots would only pick up the font rendering
+# of a second platform.
+
 name: Full Check
 
 on:
   push:
     branches: [main]
-  # pull_request:
-  #   branches: [main]
 
 jobs:
   test:
-    # Windows is where the host abstraction is most likely to be wrong:
-    # `package:path` switches to the windows style there (dart2wasm derives
-    # that from `process.platform`), and the Node host has to agree with it.
-    # Nothing else in the suite exercises that combination.
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Cache Dart pub
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.pub-cache
-            pubspec.lock
-          key: ${{ runner.os }}-dart-${{ hashFiles('pubspec.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-dart-
-
-      - name: Set up Dart SDK
-        uses: dart-lang/setup-dart@v1
-        with:
-          sdk: stable
+        uses: actions/checkout@v5
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
 
@@ -55,29 +39,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      - name: Install Dart dependencies
-        run: dart pub get
-
-      - name: Install Node dependencies
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Approve native build scripts (esbuild, msw)
+      - name: Approve native build scripts
         run: pnpm approve-builds --all
 
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium
 
-      - name: Dart tests
-        run: dart test
+      - name: Unit tests with coverage and lint
+        run: pnpm run test:unit
 
-      - name: Build (Dart → JS+Wasm, then TS)
+      - name: End-to-end tests including golden screenshots
+        run: pnpm run test:e2e
+
+      - name: Build
         run: pnpm run build
-
-      - name: Vitest (unit, e2e, browser) with coverage
-        run: pnpm run test:vitest
-
-      - name: Lint
-        run: pnpm run lint
-
-      - name: Prettier (format check)
-        run: pnpm run format:check
