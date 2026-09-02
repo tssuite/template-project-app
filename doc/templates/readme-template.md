@@ -10,8 +10,10 @@ found in the LICENSE file in the root of this package.
 
 <1–3 sentences: what does this package do, which problem does it solve?>
 
+
 - `README.md` (en) and `README.de.md` (de) are updated in the same
   change — see [Translate Guide](./translate-guide.md).
+
 
 ## Goals
 
@@ -21,9 +23,9 @@ found in the LICENSE file in the root of this package.
 
 <!-- Optional, CI badge -->
 
-```markdown
-[![Dart Script Execution](https://github.com/ggsuite/<pkg>/actions/workflows/check.yaml/badge.svg)](...)
-```
+  ```markdown
+  [![Dart Script Execution](https://github.com/ggsuite/<pkg>/actions/workflows/check.yaml/badge.svg)](...)
+  ```
 
 ## Installation
 
